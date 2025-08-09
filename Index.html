@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GREATER LOAN COMPANY - Loan Application</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0; padding: 0;
+    color: #222;
+  }
+  .container {
+    max-width: 480px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #002b5c;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px 8px;
+    margin-top: 6px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 15px;
+    resize: vertical;
+  }
+  input[type="file"] {
+    margin-top: 8px;
+  }
+  .checkbox-label {
+    font-weight: normal;
+    margin-top: 15px;
+  }
+  button {
+    margin-top: 25px;
+    width: 100%;
+    background: #004080;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #003060;
+  }
+  .success-message {
+    text-align: center;
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+  }
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>GREATER LOAN COMPANY</h1>
+    <form id="loanForm" enctype="multipart/form-data" method="POST" action="YOUR_GOOGLE_FORM_POST_URL">
+      <label for="fullName">Full Name*</label>
+      <input type="text" id="fullName" name="entry.YOUR_ENTRY_ID1" required />
+
+      <label for="phoneNumber">Phone Number (MTN)*</label>
+      <input type="tel" id="phoneNumber" name="entry.YOUR_ENTRY_ID2" pattern="[0-9]{10,15}" placeholder="e.g. 2507XXXXXXXX" required />
+
+      <label for="amountRequested">Amount Requested (RWF)*</label>
+      <input type="number" id="amountRequested" name="entry.YOUR_ENTRY_ID3" min="1000" required />
+
+      <label for="term">Term*</label>
+      <input type="text" id="term" name="entry.YOUR_ENTRY_ID4" value="2 weeks" readonly required />
+
+      <label for="collateralType">Collateral Type*</label>
+      <input type="text" id="collateralType" name="entry.YOUR_ENTRY_ID5" required />
+
+      <label for="collateralDescription">Collateral Description*</label>
+      <textarea id="collateralDescription" name="entry.YOUR_ENTRY_ID6" rows="3" required></textarea>
+
+      <label for="collateralPhoto">Photo of Collateral*</label>
+      <input type="file" id="collateralPhoto" name="entry.YOUR_ENTRY_ID7" accept="image/*" required />
+
+      <label for="selfiePhoto">Selfie (for identity check)*</label>
+      <input type="file" id="selfiePhoto" name="entry.YOUR_ENTRY_ID8" accept="image/*" required />
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="consent" name="entry.YOUR_ENTRY_ID9" required />
+        I consent to the collection and processing of my data for loan application purposes
+      </label>
+
+      <button type="submit">Submit Application</button>
+      <div class="success-message" id="successMessage" style="display:none;">Application submitted successfully!</div>
+      <div class="error-message" id="errorMessage" style="display:none;">Submission failed. Please try again.</div>
+    </form>
+  </div>
+
+<script>
+  const form = document.getElementById('loanForm');
+  const successMsg = document.getElementById('successMessage');
+  const errorMsg = document.getElementById('errorMessage');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    alert('Due to Google Forms limitations, file uploads must be done directly on Google Form link. Please use the Google Form link instead.');
+  });
+</script>
+</body>
+</html>
